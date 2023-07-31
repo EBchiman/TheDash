@@ -1,0 +1,42 @@
+{% extends 'TheDash/index.html' %}
+
+{% block licp %}
+<li class="sidebar-list-item active">
+    {% endblock %}
+ 
+    {% block current %}
+    <h1 class="app-content-headerText">Contrôles Primaires/ Top Balance Réconciliation</h1>
+    {% endblock %}
+    {% block form %}
+    {% csrf_token %}
+    <label class="app-content-headerText">Date de début</label>
+    <input type="text" class="search-bar" name="bald1" id="bald1" required>
+    <label class="app-content-headerText">Date de fin</label>
+    <input type="text" class="search-bar" name="bald7" id="bald7" required>
+    <div class="app-content-actions-wrapper"><button class="app-content-headerButton" id="visibl">VALIDER</button></div>
+    {% endblock %}
+    
+    {% block lesInfos %}
+        <div id="balance">
+        <div id="Legraf" style="height: 400px; width: 100%;">
+            <center>
+                <div class="pl hidden" id="waiting">
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__text app-content-headerText">Patientez…</div>
+            </center>
+            </div>
+        </div>
+        <div id="baltabl" class="tbl-header"></div>
+    </div>
+    {% endblock %}

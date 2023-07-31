@@ -1,0 +1,49 @@
+{% extends 'TheDash/index.html' %}
+
+
+
+{% block lira %}
+<li class="sidebar-list-item active">
+    {% endblock %}
+
+    {% block current %}
+    <h1 class="app-content-headerText">RA Checks /Réconciliation ERSvsOCS/ Bundle Purchase</h1>
+    {% endblock current %}
+
+    {% block form %}
+    {% csrf_token %}
+    <label class="app-content-headerText">Date de début</label>
+    <input type="text" class="search-bar" name="dateDebut1" id="dateDebut1" required>
+    <label class="app-content-headerText">Date de fin</label>
+    <input type="text" class="search-bar" name="dateFin1" id="dateFin1" required>
+    <div class="app-content-actions-wrapper"><button class="app-content-headerButton" id="research1">VALIDER</button></div>
+    {% endblock %}
+    
+    {% block lesInfos %}
+    <div id="bodyPage1">
+        <div id="chartContain" style="height: 400px; width: 100%;">
+            <center>
+                <div class="pl hidden" id="waiting">
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__text">Patientez…</div>
+            </center>
+            </div>
+        </div>
+        <div id="tablResult1" class="tbl-header"></div>
+    </div>
+    {% endblock %}
+
+
+   
+    

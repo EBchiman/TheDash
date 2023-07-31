@@ -1,0 +1,287 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>IN-MP Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/cdnAjax_libs_normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}?v={{ random_string }}">
+    <link rel="stylesheet" href="{% static 'css/loader.css'%}">
+
+    
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+               <center> <div class="app-icon">
+                    <img width="100%" height="90" style="fill: none; stroke-width: 1; stroke: grey"
+                        src="{% static 'img/Mtn-logo-svg.svg.png' %}" alt="MTN Logo">
+                </div>
+            </center>
+            </div>
+            <ul class="sidebar-list">
+                <li class="sidebar-list-item active">
+                    <a href="{% url 'home' %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        <span >IN-MP DASHBOARD</span>
+                        <div id="ajouSpace">ajout</div>
+                    </a>
+                </li>
+                <li class="sidebar-list-item" >
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon">
+                             <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                             <line x1="12" y1="8" x2="12" y2="12"></line>
+                             <line x1="12" y1="16" x2="12.01" y2="16">
+                              </line>
+                        </svg>
+                        <span  >CR et Incidents</span> 
+                        
+                            <button  class="action-button  jsmenu"  id="menu-button">
+                                <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-menu">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                            </button>
+                    </a>
+                    <div class="menu">
+                        <ul class="sidebar-list">
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CrAgenda'%} ">Agenda</a></li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CrEvents'%}">Evénements</a></li>
+                            <li class="sidebar-list-item"><a  style="padding: 0;"href="{% url 'CrQos'%}">Calcul QoS</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+            <li class="sidebar-list-item">
+                <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-pie-chart">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                            <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                        </svg>
+                        <span  >EVD Stats</span>
+                           <button  class="action-button jsmenuEvd"  id="menuEvd-button">
+                                <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-menu">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                            </button>
+                </a>
+                    <div class="menuEvd">
+                        <ul class="sidebar-list">
+                            <li class="sidebar-list-item"><a  style="padding: 0;"href="{% url 'EvdErsQos'%}">ERS QoS</a></li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="#"> Promo 
+                                <button class="action-button jsmenuEvdPromo" id="menuEvdPromo-button">
+                                <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-menu">
+                                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                                </svg>
+                                </button></a>
+                                <div class="menuEvdPromo">
+                                    <ul class="sidebar-list">
+                                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'EvdEndOfYearPromo'%}">End Of Year Promo</a></li>
+                                        <li class="sidebar-list-item"><a style="padding: 0;"href="{% url 'EvdSyGeneral'%}"> Promo EVD (Synthèse Générale) </a></li>
+                                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'EvdPromoVTU'%}"> Promo VTU</a></li>
+                                        <li class="sidebar-list-item"><a  style="padding: 0;"href="{% url 'EvdPromoErs'%}"> Promo ERS</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'EvdErsLife'%}"> ERS Life Cycle</a></li>
+                        </ul>
+                    </div>
+            </li>
+                <li class="sidebar-list-item">
+                    <a href="#">
+                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-square">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <span >RA Checks</span>
+                        <button class="action-button jsmenuRA" id="menuRA-button">
+                            <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-menu">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                    </a>
+                    <div class="menuRA">
+                        <ul class="sidebar-list">
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'ReconERSvsIFS'%}">Réconciliation ERS-IFS</a></li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="#"> Réconciliation ERS-OCS
+                                    <button class="action-button jsmenuRAERSvsOCS" id="menuRAERSvsOCS-button">
+                                        <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="feather feather-menu">
+                                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                                        </svg>
+                                    </button></a>
+                                <div class="menuRAERSvsOCS">
+                                    <ul class="sidebar-list">
+                                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'ReconERSvsOCSAirtime'%}">Airtime Purchase</a></li>
+                                        <li class="sidebar-list-item"><a  style="padding: 0;"href="{% url 'ReconERSvsOCSBundle'%}">Bundle Purchase</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="#">Réconciliation EWP-OCS
+                                <button class="action-button jsmenuRAEWPvsOCS" id="menuRAEWPvsOCS-button">
+                                    <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-menu">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </a>
+                            <div class="menuRAEWPvsOCS">
+                                <ul class="sidebar-list">
+                                    <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'ReconEWPvsOCSAirtime'%}">Airtime Purchase</a></li>
+                                    <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'ReconEWPvsOCSBundle'%}">Bundle Purchase</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                            <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'ReconEWPvsERS'%}"> Réconciliation EWP-ERS</a></li>
+                        </ul>
+                    </div>
+                </li>
+            <li class="sidebar-list-item">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    </svg>
+                    </svg>
+                    <span  >Contrôles Primaires</span>
+            
+                    <button class="action-button  jsmenuCP" id="menuCP-button">
+                        <svg id="burgermenu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-menu">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </a>
+                <div class="menuCP">
+                    <ul class="sidebar-list">
+                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CPtopbalance'%} ">Top Balance réconciliation</a></li>
+                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CPtopconso'%}">Top Conso vérification</a></li>
+                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CPreconCS17vsGGSN'%}">Réconciliation CS17-GGSN</a></li>
+                        <li class="sidebar-list-item"><a style="padding: 0;" href="{% url 'CPbouclage'%}">Bouclage sur les Dedicated Account(DA)</a></li>
+                        <li class="sidebar-list-item"><a  style="padding: 0;"href="{% url 'CPpeerTOpeer'%}">Peer to Peer SDP Balance Transfer Réconciliation</a></li>
+                    </ul>
+                </div>
+            </li>
+                <li class="sidebar-list-item">
+                    <a href="{% url 'loggout' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                        <span >Déconnexion</span>
+                        <div id="ajouSpace">ajout space </div>
+                  </a>
+                </li>
+            </ul>
+        </div>
+        <div class="app-content">
+            <div class="app-content-header">
+                <h1 class="app-content-headerText">IN-MP DASHBOARD</h1>
+                <button class="mode-switch" title="Switch Theme">
+                    <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                </button>
+                
+            </div>
+            <div class="app-content-actions">
+                <input class="search-bar" style=" max-width: 1000px ; width: 850px;" placeholder="Recherche..." type="text" />
+                
+                    <button class="app-content-headerButton">Rechercher</button>
+                
+            </div>
+            
+                <div class="tbl-header">
+                    <table >
+                        <thead>
+                            <tr>
+                                <th class="thtbl" style="width:390px;" >Requêtes</th>
+                                <th class="thtbl" style="width:450px;">Description</th>
+                                <th class="thtbl" style="width:190px;">Réception</th>
+                                <th class="thtbl" style="width:190px;">Traitement</th>
+                                <th class="thtbl" style="width:190px;">Fin de traitement</th>
+                                <th class="thtbl" style="width:190px;">Durée</th>
+                                <th class="thtbl" style="width:150px;">Owner</th>
+                                <th class="thtbl" style="width:100px;">Statut</th>
+                                <th class="thtbl"style="width:100px;">SLA</th>
+                                <th class="thtbl">Commentaire</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tbl-contentreq">
+                    <table >
+                        <tbody>
+                            <tr>
+                                <td class="tdtbl" style="width:350px;">Modification ressources daily reports_BNI</td>
+                                <td class="tdtbl" style="width:450px;">YELLO TEAM Prière de retirer losseni.fofana@bni.ci et le remplacer par Landry.konan@bni.ci et stephane.bile@bni.ci dans l'envoi desdaily reports de la BNI
+                                Ci-joint un modèle.</td>
+                                <td class="tdtbl" style="width:290px;">20 janvier 2023 16:00</td>
+                                <td class="tdtbl" style="width:250px;">20 janvier 2023 16:00</td>
+                                <td class="tdtbl" style="width:250px;">26 janvier 2023 16:00</td>
+                                <td class="tdtbl" style="width:250px;">02h 24min 00s</td>
+                                <td class="tdtbl" style="width:150px;">Rachel</td>
+                                <td class="tdtbl" style="width:100px;">Non clos</td>
+                                <td class="tdtbl" style="width:100px;">OK</td>
+                                <td class="tdtbl" style="width:190px;">The emails have been adde</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             
+        </div>
+    </div>
+    <!-- partial -->
+    <script src="{% static 'js/Home.js' %}"></script>
+    <script src="{% static 'js/menuEvd.js' %}"></script>
+   
+    
+    
+   
+</html>
+

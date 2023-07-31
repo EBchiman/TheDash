@@ -1,0 +1,60 @@
+{% extends 'TheDash/index.html' %}
+
+{% block licp %}
+<li class="sidebar-list-item active">
+    {% endblock %}
+
+    {% block current %}
+    <h1 class="app-content-headerText">Contrôles Primaires/ Réconciliation CS17 vs GGSN</h1>
+    {% endblock %}
+
+{% block form %}
+    {%csrf_token %}
+    <label class="app-content-headerText">Date de début</label>
+    <input type="text" class="search-bar" name="day1" id="day1" required>
+    <label class="app-content-headerText">Date de fin</label>
+    <input type="text" class="search-bar" name="day7" id="day7" required>
+    <div class="app-content-actions-wrapper"><button class="app-content-headerButton" id="show">VALIDER</button></div>
+{% endblock %}
+
+{% block lesInfos %}
+        <div id="Lecorps">
+        <div id="graphe" style="height: 400px; width: 100%;">
+            <center>
+                <div class="pl hidden" id="waiting">
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__dot"></div>
+                    <div class="pl__text">Patientez…</div>
+            </center>
+            </div>
+        </div>
+        <div id="tablGap" class="tbl-header"></div>
+    </div>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+            

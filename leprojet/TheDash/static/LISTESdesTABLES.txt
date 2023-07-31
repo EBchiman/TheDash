@@ -1,0 +1,413 @@
+NOM DES TABLES et scripts de création 
+
+
+ --------------OK-----------------------------------------------------------------------
+Reconciliation_CS17_vs_ GGSN---------------------
+
+USE [RECON3]
+/****** Object:  Table [dbo].[Reconciliation_GGSN]    Script Date: 7/11/2023 9:14:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reconciliation_GGSN](
+	[tbl_dt] [int] NULL,
+	[VOL_DATA_UP_TO] [bigint] NULL,
+	[VOL_DATA_DOWN_TO] [bigint] NULL,
+	[VOL_DATA_TOTAL_TO] [bigint] NULL
+) ON [PRIMARY]
+GO
+
+USE [RECON3]
+GO
+/****** Object:  Table [dbo].[Reconciliation_CS17_]    Script Date: 7/11/2023 9:07:31 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reconciliation_CS17_](
+	[tbl_dt] [int] NULL,
+	[CS_VOL] [bigint] NULL
+) ON [PRIMARY]
+GO
+
+
+Peer_to_Peer_SDP_Balance_Transfer_Reconciliation----------------
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[Peer_to_Peer_SDP_Balance_Transfer_Reconciliation]    Script Date: 7/6/2023 5:26:45 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Peer_to_Peer_SDP_Balance_Transfer_Reconciliation](
+	[dw_date_key] [int] NULL,
+	[Total_TransitionFee] [bigint] NULL,
+	[Total_Transferamount] [bigint] NULL,
+	[Total_ChargeFromPrepaid] [bigint] NULL,
+	[Gap] [bigint] NULL
+) ON [PRIMARY]
+GO
+
+AIRTIME_ERS_NOT_IN_CS16-----------------------
+USE [RECON3]
+GO
+/****** Object:  Table [dbo].[AIRTIME_ERS_NOT_IN_CS16]    Script Date: 7/6/2023 5:28:52 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AIRTIME_ERS_NOT_IN_CS16](
+	[DATES] [varchar](255) NULL,
+	[HEURE] [varchar](255) NULL,
+	[ERSREFERENCE] [varchar](255) NULL,
+	[REQUESTAMOUNTVALUE] [varchar](255) NULL,
+	[RECEIVERMSISDN] [varchar](255) NULL,
+	[SENDERMSISDN] [varchar](255) NULL,
+	[RESULTCODE] [varchar](255) NULL,
+	[RESULTSTATUS] [varchar](255) NULL,
+	[id] [varchar](255) NULL,
+	[id2] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+RESUME_BUNDLE_ERS_CS16-------------------------
+USE [RECON3]
+GO
+/****** Object:  Table [dbo].[RESUME_BUNDLE_ERS_CS16]    Script Date: 7/6/2023 5:20:19 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RESUME_BUNDLE_ERS_CS16](
+	[DATEID] [varchar](100) NULL,
+	[ERS_TOTAL] [int] NULL,
+	[ERS_AMOUNT] [float] NULL,
+	[CS16_TOTAL] [int] NULL,
+	[CS16_AMOUNT] [float] NULL,
+	[GAP_TOTAL] [int] NULL,
+	[GAP_AMOUNT] [float] NULL
+) ON [PRIMARY]
+GO
+
+RESUME_TRANSACTIONS_EWP_ERS------------------
+
+USE [RECON3]
+GO
+/****** Object:  Table [dbo].[RESUME_TRANSACTIONS_EWP_ERS]    Script Date: 7/6/2023 5:22:22 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RESUME_TRANSACTIONS_EWP_ERS](
+	[dates] [varchar](10) NULL,
+	[ewp_total] [int] NULL,
+	[ewpamount] [float] NULL,
+	[ers_total] [int] NULL,
+	[ersamount] [float] NULL,
+	[gap_total] [int] NULL,
+	[gapamount] [float] NULL
+) ON [PRIMARY]
+GO
+
+Top_Balance_reconciliation----------------------------
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[TopBalanceIN]    Script Date: 7/6/2023 5:17:38 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TopBalanceIN](
+	[DUMP_DATE] [int] NULL,
+	[MSISDN] [text] NULL,
+	[BALANCE] [text] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+
+Top_Conso_verification----------------------------
+
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[Top_Conso_verification]    Script Date: 7/6/2023 5:04:12 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Top_Conso_verification](
+	[MSISDN] [text] NULL,
+	[CONSO] [float] NULL,
+	[DATE] [int] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+-------------------------------------------------
+RESUME_AIRTIME_ERS_CS16 
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[RESUME_AIRTIME_ERS_CS16]    Script Date: 7/11/2023 10:24:22 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RESUME_AIRTIME_ERS_CS16](
+	[DATEID] [varchar](255) NULL,
+	[ERS_TOTAL] [int] NULL,
+	[ERS_AMOUNT] [float] NULL,
+	[CS16_TOTAL] [int] NULL,
+	[CS16_AMOUNT] [float] NULL,
+	[GAP_TOTAL] [int] NULL,
+	[GAP_AMOUNT] [float] NULL
+) ON [PRIMARY]
+GO
+---------------------------------------------
+--------------------------------------------------------------
+RESUME_AIRTIME_EWP_OCS
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[RESUME_AIRTIME_EWP_OCS]    Script Date: 7/11/2023 10:30:37 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[RESUME_AIRTIME_EWP_OCS](
+	[DATEID] [varchar](255) NULL,
+	[EWP_TOTAL] [int] NULL,
+	[EWP_AMOUNT] [float] NULL,
+	[OCS_TOTAL] [int] NULL,
+	[OCS_AMOUNT] [float] NULL,
+	[GAP_TOTAL] [int] NULL,
+	[GAP_AMOUNT] [float] NULL
+) ON [PRIMARY]
+GO
+---------------------------------------------------------------
+------------------------------------------------------
+AIRTIME_CS16_NOT_IN_ERS 
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[AIRTIME_CS16_NOT_IN_ERS]    Script Date: 7/11/2023 10:44:23 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AIRTIME_CS16_NOT_IN_ERS](
+	[HEURE] [varchar](255) NULL,
+	[SENDERMSISDN] [varchar](255) NULL,
+	[DATES] [varchar](255) NULL,
+	[ERSREFERENCE] [varchar](255) NULL,
+	[REQUESTAMOUNTVALUE] [varchar](255) NULL,
+	[RECEIVERMSISDN] [varchar](255) NULL,
+	[RESULTCODE] [varchar](255) NULL,
+	[RESULTSTATUS] [varchar](255) NULL,
+	[id] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+----------------------------------------------------------
+
+--------------------------------------------------------------
+BUNDLE_EWP_NOT_IN_CS16 
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[BUNDLE_EWP_NOT_IN_CS16]    Script Date: 7/11/2023 10:51:50 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[BUNDLE_EWP_NOT_IN_CS16](
+	[DATEID] [varchar](255) NULL,
+	[HEURE] [varchar](255) NULL,
+	[STATUS] [varchar](255) NULL,
+	[TXTYPE] [varchar](255) NULL,
+	[SERVICE] [varchar](255) NULL,
+	[FID] [varchar](255) NULL,
+	[EXT_ID] [varchar](255) NULL,
+	[AMOUNT] [varchar](255) NULL,
+	[MSISDN_FROM] [varchar](255) NULL,
+	[PROFILE_DESCR_FR] [varchar](255) NULL,
+	[ACCOUNT_HOLDER_CD_FR] [varchar](255) NULL,
+	[TYPE_FR] [varchar](255) NULL,
+	[MSISDN_TO] [varchar](255) NULL,
+	[PROFILE_DESCR_TO] [varchar](255) NULL,
+	[ACCOUNT_HOLDER_CD_TO] [varchar](255) NULL,
+	[TYPE_TO] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+------------------------------------------------------------------
+
+-----------------------------------------------------------
+EWP_NOT_IN_ERS   et EWP_NOT_IN_ERS_1 cest la même table
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[EWP_NOT_IN_ERS]    Script Date: 7/11/2023 10:55:44 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EWP_NOT_IN_ERS](
+	[dates] [varchar](255) NULL,
+	[heure] [varchar](255) NULL,
+	[fid] [varchar](255) NULL,
+	[extid] [varchar](255) NULL,
+	[amount] [varchar](255) NULL,
+	[msisdn_from] [varchar](255) NULL,
+	[msisdn_to] [varchar](255) NULL,
+	[finalref] [varchar](255) NULL,
+	[finalstatus] [varchar](255) NULL,
+	[momodepositfailed] [varchar](255) NULL,
+	[momotransactoriginalreference] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+--------------------------------------------------------------
+-------------------------------------la table est vide----------------------
+INITIAL_ERROR_PAYMENT 
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[INITIAL_ERROR_PAYMENT]    Script Date: 7/11/2023 10:57:44 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[INITIAL_ERROR_PAYMENT](
+	[DATES] [varchar](255) NULL,
+	[HEURE] [varchar](255) NULL,
+	[TXTYPE] [varchar](255) NULL,
+	[FID] [varchar](255) NULL,
+	[EXTID] [varchar](255) NULL,
+	[AMOUNT] [varchar](255) NULL,
+	[SP] [varchar](255) NULL,
+	[MSISDN_FROM] [varchar](255) NULL,
+	[MSISDN_TO] [varchar](255) NULL,
+	[STATUS] [varchar](255) NULL,
+	[REFUND_REF] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+
+--------------------------------------------------------------
+-----------------------------------------------
+ERROR_ANALYSIS-- et  ERS_ERROR_ANALYSIS c'est la même tables---
+
+/****** Object:  Table [dbo].[ERS_ERROR_ANALYSIS]    Script Date: 7/12/2023 5:08:28 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ERS_ERROR_ANALYSIS](
+	[DATEJOUR] [nvarchar](255) NULL,
+	[TRANSACTIONTYPE] [nvarchar](255) NULL,
+	[RESULTSTATUS] [nvarchar](255) NULL,
+	[TOTAL] [nvarchar](255) NULL
+) ON [PRIMARY]
+GO
+
+-------------------------------------------
+---------------------------------------------------------
+AIRTIME_CS16_NOT_IN_ERS_2 
+USE [RECON3]
+GO
+
+/****** Object:  Table [dbo].[AIRTIME_CS16_NOT_IN_ERS_2]    Script Date: 7/12/2023 5:01:23 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AIRTIME_CS16_NOT_IN_ERS_2](
+	[DATEID] [varchar](255) NULL,
+	[DW_DATE_KEY] [varchar](255) NULL,
+	[HEURE] [varchar](255) NULL,
+	[EXTID] [varchar](255) NULL,
+	[AMOUNT] [varchar](255) NULL,
+	[SENDERMSISDN] [varchar](255) NULL,
+	[RECEIVER] [varchar](255) NULL,
+	[STATUS] [varchar](255) NULL,
+	[HOSTNAME] [varchar](255) NULL,
+	[id] [varchar](255) NULL,
+	[extid2] [varchar](255) NULL,
+	[id2] [varchar](255) NULL
+) ON [PRIMARY]
+GO
+---------------------------------------------------------
+_________________________________________________________________________________
+
+_________________________________________________________________________________
+tables restantes 
+__________________________________________________________________________________
+
+
+systems
+
+availability
+
+events
+
+ERS_LIFE_CYCLE
+
+promo
+
+evd_seamless.promo
+
+momalert.promo
+
+TxRefs t
+
+Ppastx p
+
+ERS_VEND_INTERNAL_QOS
+
+ERS_TRANSFER_INTERNAL_QOS
+
+BMAP_PERFORMANCES
+
+RECONCILIATION.ERS_NOT_IN_EWP
+
+RECONCILIATION.ERS_NOT_IN_EWP_1
+
+RECONCILIATION.ROLLBACK_FAILED     &  ROLLBACK_FAILED
+
+RECONCILIATION.BUNDLE_CS16_NOT_IN_EWP
+
+BUNDLE_ERS_NOT_IN_CS16
+
+RECONCILIATION.BUNDLE_CS16_NOT_IN_ERS
+
+RECONCILIATION.AIRTIME_CS16_NOT_IN_ERS_1
+
+RECONCILIATION.AIRTIME_CS16_NOT_IN_ERS_details
+
+RECONCILIATION.REFILL_ERS_NOT_IN_IFS
+
+RECONCILIATION.REFILL_IFS_NOT_IN_ERS
+
+RESUME_BUNDLE_EWP_CS16
+
+RESUME_REFILL_ERS_IFS
