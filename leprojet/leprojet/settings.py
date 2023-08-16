@@ -99,13 +99,7 @@ DATABASES = {
             'PASSWORD':'Stage@@@@112233',
              "HOST": "LP-DSI-16\TEST",
              'PORT': '',
-            #'ENGINE': 'mssql',
-            #'NAME': 'RECON3',
-            # 'USER':  'SVC_MPAYMENT',
-            # 'PASSWORD':'Lkc_Kh23dSQpKb9dQ3',
-            # 'HOST': 'SVR-DBCTC-01',
-            # 'HOST': 'CONSOSQL\CONSOSQL',
-            # "PORT": "59081",
+            
 
             'OPTIONS': {
                 'driver': 'ODBC Driver 17 for SQL Server',
